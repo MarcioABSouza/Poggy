@@ -69,7 +69,7 @@ window.OverworldMaps = {
         lowerSrc: 'images/maps/DemoLower.png',
         upperSrc: 'images/maps/DemoUpper.png',
         gameObjects: {
-            hero: new Person({ x: utils.withGrid(5), y: utils.withGrid(6), isPlayerControlled: true, src: 'images/characters/hero.png' }),
+            hero: new Person({ x: utils.withGrid(6), y: utils.withGrid(6), isPlayerControlled: true, src: 'images/characters/hero.png' }),
             npc: new Person({ x: utils.withGrid(3), y: utils.withGrid(6) })
         },
         walls: {

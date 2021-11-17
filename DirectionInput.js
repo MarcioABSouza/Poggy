@@ -6,9 +6,14 @@ class DirectionInput {
             'KeyW': 'up',
             'KeyS': 'down',
             'KeyA': 'left',
-            'KeyD': 'right'
+            'KeyD': 'right',
+            'arrow-right': 'right',
+            'arrow-left': 'left',
+            'arrow-top': 'up',
+            'arrow-bottom': 'down'
         };
 
+        this.directions = document.querySelector('#directions');
     }
 
     get direction() {
@@ -16,6 +21,26 @@ class DirectionInput {
     }
 
     init() {
+
+
+        this.directions.addEventListener('mousedown', e => {
+            const key = e.path[0].id;
+
+            if (this.heldDirections.indexOf(this.map[key]) === -1) {
+                this.heldDirections.unshift(this.map[key]);
+            }
+        })
+
+        this.directions.addEventListener('mouseup', e => {
+            const key = e.path[0].id;
+
+            const index = this.heldDirections.indexOf(this.map[key]);
+            if (index > -1) {
+                this.heldDirections.splice(index, 1);
+            }
+        })
+
+
         document.addEventListener('keydown', e => {
             const dir = this.map[e.code];
             if (dir && this.heldDirections.indexOf(dir) === -1) {
