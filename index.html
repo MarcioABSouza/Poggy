@@ -6,14 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=2">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gameboy.css">
     <title>POGGY</title>
 </head>
 
 <body>
+    <div class="gameboy-body">  
+        <header></header>
+            <div class="game-container">
+                <canvas class="game-canvas" width="352" height="198"></canvas>
+            </div>
+        <section class="actions">
+         <div class="directions">
+          <button class="arrow-left"></button>
+          <button class="arrow-top"></button>
+          <button class="arrow-right"></button>
+          <button class="arrow-bottom"></button>
+         </div>
+         <div class="buttons">
+          <button class="button-a"></button>
+          <button class="button-b"></button>
+         </div>
+        </section>
+       </div>
+      </main>
 
-    <div class="game-container">
-        <canvas class="game-canvas" width="352" height="198"></canvas>
-    </div>
+
     <script src="utils.js"></script>
     <script src="DirectionInput.js"></script>
     <script src="Overworld.js"></script>
