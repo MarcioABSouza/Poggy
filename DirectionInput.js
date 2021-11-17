@@ -24,7 +24,7 @@ class DirectionInput {
 
 
         this.directions.addEventListener('mousedown', e => {
-            const key = e.path[0].id;
+            const key = e.target.id;
 
             if (this.heldDirections.indexOf(this.map[key]) === -1) {
                 this.heldDirections.unshift(this.map[key]);
@@ -32,7 +32,7 @@ class DirectionInput {
         })
 
         this.directions.addEventListener('mouseup', e => {
-            const key = e.path[0].id;
+            const key = e.target.id;
 
             const index = this.heldDirections.indexOf(this.map[key]);
             if (index > -1) {

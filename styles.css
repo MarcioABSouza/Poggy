@@ -26,5 +26,5 @@ body {
 .game-container canvas {
     background-color: #333;
     image-rendering: pixelated;
-    zoom: 1.7;
+    transform: scale(2.2);
 }
