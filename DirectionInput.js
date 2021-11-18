@@ -20,42 +20,37 @@ class DirectionInput {
         return this.heldDirections[0];
     }
 
+    keyDown(e) {
+        const key = e.code || e.target.id;
+
+        if (this.heldDirections.indexOf(this.map[key]) === -1) {
+            this.heldDirections.unshift(this.map[key]);
+        }
+    }
+
+    keyUp(e) {
+        const key = e.code || e.target.id;
+
+        console.log(e.code)
+
+        const index = this.heldDirections.indexOf(this.map[key]);
+        if (index > -1) {
+            this.heldDirections.splice(index, 1);
+        }
+    }
+
     init() {
 
+        this.directions.addEventListener('touchstart', e => this.keyDown(e))
 
-        this.directions.addEventListener('mousedown', e => {
-            const key = e.target.id;
+        this.directions.addEventListener('touchend', e => this.keyUp(e))
 
-            if (this.heldDirections.indexOf(this.map[key]) === -1) {
-                this.heldDirections.unshift(this.map[key]);
-            }
-        })
+        this.directions.addEventListener('mousedown', e => this.keyDown(e))
 
-        this.directions.addEventListener('mouseup', e => {
-            const key = e.target.id;
+        this.directions.addEventListener('mouseup', e => this.keyUp(e))
 
-            const index = this.heldDirections.indexOf(this.map[key]);
-            if (index > -1) {
-                this.heldDirections.splice(index, 1);
-            }
-        })
+        document.addEventListener('keydown', e => this.keyDown(e))
 
-
-        document.addEventListener('keydown', e => {
-            const dir = this.map[e.code];
-            if (dir && this.heldDirections.indexOf(dir) === -1) {
-                this.heldDirections.unshift(dir);
-
-            }
-        })
-
-        document.addEventListener('keyup', e => {
-            const dir = this.map[e.code];
-            const index = this.heldDirections.indexOf(dir);
-            if (index > -1) {
-                this.heldDirections.splice(index, 1);
-
-            }
-        })
+        document.addEventListener('keyup', e => this.keyUp(e))
     }
 }
