@@ -31,8 +31,6 @@ class DirectionInput {
     keyUp(e) {
         const key = e.code || e.target.id;
 
-        console.log(e.code)
-
         const index = this.heldDirections.indexOf(this.map[key]);
         if (index > -1) {
             this.heldDirections.splice(index, 1);
