@@ -1,3 +1,5 @@
+const utils = require('./utils');
+
 class Sprite {
     constructor(config) {
         //Set up the image
@@ -100,3 +102,5 @@ class Sprite {
         this.updateAnimationProgress();
     }
 }
+
+module.exports = Sprite;

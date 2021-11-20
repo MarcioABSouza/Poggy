@@ -53,3 +53,5 @@ class DirectionInput {
         this.document.addEventListener('keyup', e => this.keyUp(e))
     }
 }
+
+module.exports = DirectionInput;

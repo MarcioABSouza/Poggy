@@ -1,3 +1,5 @@
+const GameObject = require('./GameObject');
+
 class Person extends GameObject {
     constructor(config) {
         super(config);
@@ -62,3 +64,5 @@ class Person extends GameObject {
         this.sprite.setAnimation('idle-' + this.direction);
     }
 }
+
+module.exports = Person;

@@ -1,3 +1,6 @@
+const Person = require('./Person.js');
+const utils = require('./utils');
+
 class OverworldMap {
     constructor(config) {
         this.gameObjects = config.gameObjects;
@@ -127,3 +130,5 @@ window.OverworldMaps = {
         }
     }
 }
+
+module.exports = OverworldMap;

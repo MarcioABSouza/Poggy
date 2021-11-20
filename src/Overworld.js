@@ -1,3 +1,5 @@
+const OverworldMap = require('./OverworldMap.js');
+
 class Overworld {
     constructor(config) {
         this.element = config.element;
@@ -51,3 +53,5 @@ class Overworld {
         this.startGameLoop();
     }
 }
+
+export default Overworld;

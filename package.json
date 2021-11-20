@@ -1,0 +1,21 @@
+{
+    "name": "poggy",
+    "version": "1.0.0",
+    "description": "A simple Js Game",
+    "main": "DirectionInput.js",
+    "scripts": {
+        "build": "webpack --mode development"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MarcioABSouza/Poggy.git"
+    },
+    "keywords": [],
+    "author": "Marcio Souza",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MarcioABSouza/Poggy/issues"
+    },
+    "homepage": "https://github.com/MarcioABSouza/Poggy#readme",
+    "dependencies": {}
+}
