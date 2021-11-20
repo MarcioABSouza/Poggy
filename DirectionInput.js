@@ -14,6 +14,7 @@ class DirectionInput {
         };
 
         this.directions = document.querySelector('#directions');
+        this.document = document;
     }
 
     get direction() {
@@ -47,8 +48,8 @@ class DirectionInput {
 
         this.directions.addEventListener('mouseup', e => this.keyUp(e))
 
-        document.addEventListener('keydown', e => this.keyDown(e))
+        this.document.addEventListener('keydown', e => this.keyDown(e))
 
-        document.addEventListener('keyup', e => this.keyUp(e))
+        this.document.addEventListener('keyup', e => this.keyUp(e))
     }
 }
