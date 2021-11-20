@@ -54,4 +54,4 @@ class DirectionInput {
     }
 }
 
-module.exports = DirectionInput;
+export default DirectionInput;

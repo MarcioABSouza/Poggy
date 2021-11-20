@@ -1,5 +1,4 @@
-const GameObject = require('./GameObject');
-
+import GameObject from './GameObject.js';
 class Person extends GameObject {
     constructor(config) {
         super(config);
@@ -65,4 +64,4 @@ class Person extends GameObject {
     }
 }
 
-module.exports = Person;
+export default Person;

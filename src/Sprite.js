@@ -1,5 +1,4 @@
-const utils = require('./utils');
-
+import utils from './utils.js';
 class Sprite {
     constructor(config) {
         //Set up the image
@@ -103,4 +102,4 @@ class Sprite {
     }
 }
 
-module.exports = Sprite;
+export default Sprite;

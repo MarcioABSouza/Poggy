@@ -1,3 +1,4 @@
+import Sprite from "./Sprite.js";
 class GameObject {
     constructor(config) {
         this.isMounted = false;
@@ -20,4 +21,4 @@ class GameObject {
     }
 }
 
-module.exports = GameObject;
+export default GameObject;

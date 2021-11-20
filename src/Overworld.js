@@ -1,5 +1,5 @@
-const OverworldMap = require('./OverworldMap.js');
-
+import OverworldMap from './OverworldMap.js';
+import DirectionInput from './DirectionInput.js';
 class Overworld {
     constructor(config) {
         this.element = config.element;

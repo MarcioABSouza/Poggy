@@ -1,6 +1,6 @@
-const Person = require('./Person.js');
-const utils = require('./utils');
-
+import Person from './Person.js';
+import utils from './utils.js';
+import GameObject from './GameObject.js';
 class OverworldMap {
     constructor(config) {
         this.gameObjects = config.gameObjects;
@@ -131,4 +131,4 @@ window.OverworldMaps = {
     }
 }
 
-module.exports = OverworldMap;
+export default OverworldMap;
