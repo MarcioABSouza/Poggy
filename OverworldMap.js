@@ -1,6 +1,7 @@
 import Person from './Person.js';
 import utils from './utils.js';
 import GameObject from './GameObject.js';
+import OverworldEvent from './OverworldEvent.js';
 class OverworldMap {
     constructor(config) {
         this.gameObjects = config.gameObjects;
@@ -11,6 +12,8 @@ class OverworldMap {
 
         this.upperImage = new Image();
         this.upperImage.src = config.upperSrc;
+
+        this.isCutscenePlaying = false;
     }
 
 
@@ -38,9 +41,27 @@ class OverworldMap {
     }
 
     mountObjects() {
-        Object.values(this.gameObjects).forEach(o => {
-            o.mount(this);
+        Object.keys(this.gameObjects).forEach(key => {
+
+            let object = this.gameObjects[key];
+            object.id = key;
+
+            object.mount(this);
         })
+    }
+
+    async startCutscene(events) {
+        this.isCutscenePlaying = true;
+
+        for (let i = 0; i < events.length; i++) {
+            const eventHandler = new OverworldEvent({
+                event: events[i],
+                map: this
+            })
+            await eventHandler.init();
+        }
+
+        this.isCutscenePlaying = false;
     }
 
 
@@ -73,7 +94,16 @@ window.OverworldMaps = {
         upperSrc: 'images/maps/DemoUpper.png',
         gameObjects: {
             hero: new Person({ x: utils.withGrid(6), y: utils.withGrid(6), isPlayerControlled: true, src: 'images/characters/hero.png' }),
-            npc: new Person({ x: utils.withGrid(3), y: utils.withGrid(6) })
+            npc: new Person({
+                x: utils.withGrid(3),
+                y: utils.withGrid(6),
+                behaviorLoop: [
+                    { type: 'stand', direction: 'left', time: 800 },
+                    { type: 'stand', direction: 'right', time: 1300 },
+                    { type: 'stand', direction: 'up', time: 1800 },
+                    { type: 'stand', direction: 'down', time: 300 },
+                ]
+            })
         },
         walls: {
 
