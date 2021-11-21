@@ -1,0 +1,32 @@
+.TextMessage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 225px;
+    height: 36px;
+    font-size: 12px;
+    padding: 4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+.TextMessage_paragraph {
+    margin: 0;
+    font-size: 7px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.TextMessage_button {
+    margin: 0;
+    font-size: 11px;
+    padding: 0;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    position: absolute;
+    right: 7px;
+    bottom: 3px;
+}

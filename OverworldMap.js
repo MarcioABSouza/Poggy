@@ -5,6 +5,7 @@ import OverworldEvent from './OverworldEvent.js';
 class OverworldMap {
     constructor(config) {
         this.gameObjects = config.gameObjects;
+        this.cutsceneSpaces = config.cutsceneSpaces || {};
         this.walls = config.walls || {}
 
         this.lowerImage = new Image();
@@ -62,8 +63,30 @@ class OverworldMap {
         }
 
         this.isCutscenePlaying = false;
+
+        Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this));
     }
 
+    checkForActionCutscene() {
+        const hero = this.gameObjects['hero'];
+        const nextCoords = utils.nextPosition(hero.x, hero.y, hero.direction);
+        const match = Object.values(this.gameObjects).find(object => {
+            return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
+        });
+        if (!this.isCutscenePlaying && match && match.talking.length) {
+            this.startCutscene(match.talking[0].events);
+        }
+    }
+
+    checkForFootstepCutscene() {
+        const hero = this.gameObjects['hero'];
+        const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
+
+        if (!this.isCutscenePlaying && match) {
+            this.startCutscene(match[0].events);
+        }
+
+    }
 
     addWall(x, y) {
         this.walls[`${x},${y}`] = true;
@@ -102,7 +125,15 @@ window.OverworldMaps = {
                     { type: 'stand', direction: 'right', time: 1300 },
                     { type: 'stand', direction: 'up', time: 1800 },
                     { type: 'stand', direction: 'down', time: 300 },
-                ]
+                ],
+                talking: [{
+                    events: [
+                        { type: 'textMessage', text: 'Qual o drama?', faceHero: 'npc' },
+                        { type: 'textMessage', text: 'Vai arrumar o que fazer!!' },
+                        { who: 'hero', type: 'walk', direction: 'down' },
+
+                    ]
+                }]
             })
         },
         walls: {
@@ -155,8 +186,16 @@ window.OverworldMaps = {
             [utils.asGridCoord(10, 10)]: true,
 
             //Door Wall
-            [utils.asGridCoord(5, 11)]: true,
+            //[utils.asGridCoord(5, 11)]: true,
             [utils.asGridCoord(2, 3)]: true,
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 10)]: [{
+                events: [
+                    { type: 'textMessage', text: 'Não tem nada pra fazer lá fora!' },
+                    { who: 'hero', type: 'walk', direction: 'up' },
+                ]
+            }]
         }
     }
 }
