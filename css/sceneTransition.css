@@ -1,0 +1,32 @@
+.SceneTransition {
+    position: absolute;
+    left: 1px;
+    top: 25px;
+    right: 1px;
+    bottom: 225px;
+    background: #fff;
+    opacity: 0;
+    animation: scene-transition-fade-in .8s forwards;
+}
+
+.SceneTransition.fade-out {
+    animation: scene-transition-fade-out .8s forwards;
+}
+
+@keyframes scene-transition-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scene-transition-fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

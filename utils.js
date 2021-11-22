@@ -7,6 +7,10 @@ const utils = {
         return `${x*16},${y*16}`;
     },
 
+    heroPositionHelper(x, y) {
+        console.log('O heroi está na posição ', x / 16, y / 16);
+    },
+
     nextPosition(initialX, initialY, direction) {
         let x = initialX;
         let y = initialY;

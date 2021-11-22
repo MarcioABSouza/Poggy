@@ -1,3 +1,4 @@
+import SceneTransition from "./SceneTransition.js";
 import TextMessage from "./TextMessage.js";
 import utils from "./utils.js";
 class OverworldEvent {
@@ -52,6 +53,18 @@ class OverworldEvent {
 
         message.init(document.querySelector('.game-container'))
     }
+
+    changeMap(resolve) {
+        const sceneTransition = new SceneTransition();
+        sceneTransition.init(document.querySelector('.game-container'), () => {
+            this.map.overworld.startMap(window.OverworldMaps[this.event.map]);
+            resolve()
+
+            sceneTransition.fadeOut();
+        })
+
+    }
+
 
     init() {
         return new Promise(resolve => {

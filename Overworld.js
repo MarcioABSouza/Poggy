@@ -65,12 +65,17 @@ class Overworld {
         })
     }
 
+    startMap(mapConfig) {
+        this.map = new OverworldMap(mapConfig);
+        this.map.overworld = this;
+        this.map.mountObjects();
+    }
+
 
 
 
     init() {
-        this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
-        this.map.mountObjects();
+        this.startMap(window.OverworldMaps.DemoRoom);
 
         this.bindActionInput();
         this.bindHeroPositionCheck();
@@ -81,10 +86,12 @@ class Overworld {
         this.startGameLoop();
 
         this.map.startCutscene([
+            { who: 'hero', type: 'stand', direction: 'down', time: 1000 },
+            { who: 'hero', type: 'stand', direction: 'left', time: 1000 },
+            { who: 'hero', type: 'stand', direction: 'right', time: 1000 },
+            { who: 'hero', type: 'stand', direction: 'down' },
 
-            //{ type: 'textMessage', text: 'Let the carnage begins!' }
-            // { who: 'npc', type: 'walk', direction: 'up', time: 800 },
-            // { who: 'npc', type: 'walk', direction: 'down', time: 1300 },
+            { type: 'textMessage', text: 'Aqui vamos mós, mais um dia!' }
         ])
     }
 }
