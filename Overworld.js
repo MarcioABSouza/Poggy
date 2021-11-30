@@ -9,7 +9,7 @@ class Overworld {
         this.map = null;
         this.document = document;
         this.sound = new Howl({
-            src: ['../audio/main.mp3'],
+            src: ['./audio/main.mp3'],
             loop: true,
             volume: 0.1,
         });
