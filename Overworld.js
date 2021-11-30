@@ -8,6 +8,11 @@ class Overworld {
         this.ctx = this.canvas.getContext('2d')
         this.map = null;
         this.document = document;
+        this.sound = new Howl({
+            src: ['../audio/main.mp3'],
+            loop: true,
+            volume: 0.1,
+        });
     }
 
 
@@ -84,6 +89,7 @@ class Overworld {
         this.directionInput = new DirectionInput();
         this.directionInput.init();
         this.startGameLoop();
+        //this.sound.play();
 
         this.map.startCutscene([
             { who: 'hero', type: 'stand', direction: 'down', time: 1000 },
