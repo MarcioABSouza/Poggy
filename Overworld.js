@@ -89,7 +89,7 @@ class Overworld {
         this.directionInput = new DirectionInput();
         this.directionInput.init();
         this.startGameLoop();
-        //this.sound.play();
+        this.sound.play();
 
         this.map.startCutscene([
             { who: 'hero', type: 'stand', direction: 'down', time: 1000 },
