@@ -13,9 +13,23 @@ export default {
             ],
             talking: [{
                 events: [
-                    { type: 'textMessage', text: 'Tentando conectar...', faceHero: 'computer'  },
+                    { who: 'computer',type: 'stand', direction: 'down', time:500},
+                    { type: 'textMessage', text: 'Tentando conectar...'},
                     { type: 'textMessage', text: '...' },
                     { type: 'textMessage', text: 'Sem conexão com a Wired.' },
+                    { who: 'computer',type: 'stand', direction: 'up', time:500},
+                ]
+            }]
+        }),
+        npc: new Person({ 
+            x: utils.withGrid(6), y: utils.withGrid(8), isPlayerControlled: false, src: 'images/characters/npc.png',
+            behaviorLoop: [
+                { type: 'stand', direction: 'left', time:1000},
+            ],
+            talking: [{
+                events: [
+                    { who: 'npc', type: 'stand', direction: 'jump-left', time:400},
+                    { type: 'textMessage', text: 'É, sou um Npc... um bot?', faceHero: 'npc'  },
                 ]
             }]
         })

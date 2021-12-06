@@ -97,7 +97,7 @@ class Overworld {
             { who: 'hero', type: 'stand', direction: 'right', time: 1000 },
             { who: 'hero', type: 'stand', direction: 'down' },
 
-            { type: 'textMessage', text: 'Aqui vamos mós, mais um dia!' }
+            { type: 'textMessage', text: 'Aff, lá vamos nós novamente!!' }
         ])
     }
 }

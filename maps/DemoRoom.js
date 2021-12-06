@@ -7,9 +7,10 @@ export default {
     upperSrc: 'images/maps/DemoUpper.png',
     gameObjects: {
         hero: new Person({ x: utils.withGrid(6), y: utils.withGrid(6), isPlayerControlled: true, src: 'images/characters/hero.png' }),
-        npc: new Person({
+        npc1: new Person({
             x: utils.withGrid(3),
             y: utils.withGrid(6),
+            src: 'images/characters/npc7.png',
             behaviorLoop: [
                 { type: 'stand', direction: 'left', time: 800 },
                 { type: 'stand', direction: 'right', time: 1300 },
@@ -18,14 +19,30 @@ export default {
             ],
             talking: [{
                 events: [
-                    { type: 'textMessage', text: 'Esse é um jogo totalmente em JS...', faceHero: 'npc' },
-                    { type: 'textMessage', text: 'Estamos em desenvolvimento...' },
-                    { type: 'textMessage', text: 'Então tenha calma.' },
+                    { type: 'textMessage', text: 'Esse é um jogo totalmente em JS...', faceHero: 'npc1' },
+                    { type: 'textMessage', text: 'Estamos em desenvolvimento...', faceHero: 'npc1' },
+                    { type: 'textMessage', text: 'Então tenha calma.', faceHero: 'npc1' },
                     { who: 'hero', type: 'walk', direction: 'down' },
 
                 ]
             }]
-        })
+        }),
+        computerBroked: new Person({ 
+            x: utils.withGrid(8), y: utils.withGrid(6), isPlayerControlled: false, src: 'images/objects/computer.png',
+            behaviorLoop: [
+                { type: 'stand', direction: 'right', time: 700 },
+                { type: 'stand', direction: 'up', time: 1200 },
+                { type: 'stand', direction: 'right', time: 350 },
+                { type: 'stand', direction: 'up', time: 500 },
+            ],
+            talking: [{
+                events: [
+                    { type: 'textMessage', text: '...' },
+                    { type: 'take', who:'computerBroked'},
+                    { type: 'textMessage', text: 'Você adquiriu um PC quebrado!!' },
+                ]
+            }]
+        }),
     },
     walls: {
 

@@ -65,6 +65,11 @@ class OverworldEvent {
 
     }
 
+    take(resolve) {
+        delete this.map.gameObjects[this.event.who]
+        resolve()
+    }
+
 
     init() {
         return new Promise(resolve => {

@@ -22,6 +22,22 @@ class Sprite {
             'idle-left': [
                 [0, 3]
             ],
+            'idle-jump-down': [
+                [0, 0],
+                [2, 0]
+            ],
+            'idle-jump-up': [
+                [0, 2],
+                [2, 2]
+            ],
+            'idle-jump-left': [
+                [0, 3],
+                [2, 3]
+            ],
+            'idle-jump-right': [
+                [0, 1],
+                [2, 1]
+            ],
             'walk-down': [
                 [1, 0],
                 [0, 0],
