@@ -1,6 +1,8 @@
 import OverworldMap from './OverworldMap.js';
 import DirectionInput from './DirectionInput.js';
 import KeyPressListener from './KeyPressListener.js';
+import PlayerState from './PlayerState.js';
+
 class Overworld {
     constructor(config) {
         this.element = config.element;
@@ -80,7 +82,9 @@ class Overworld {
 
 
     init() {
-        this.startMap(window.OverworldMaps.DemoRoom);
+
+        window.playerState = new PlayerState();
+        this.startMap(window.OverworldMaps.BedRoom);
 
         this.bindActionInput();
         this.bindHeroPositionCheck();
@@ -92,12 +96,13 @@ class Overworld {
         this.sound.play();
 
         this.map.startCutscene([
-            { who: 'hero', type: 'stand', direction: 'down', time: 1000 },
-            { who: 'hero', type: 'stand', direction: 'left', time: 1000 },
-            { who: 'hero', type: 'stand', direction: 'right', time: 1000 },
+            { who: 'hero', type: 'stand', direction: 'down', time: 500 },
+            { who: 'hero', type: 'stand', direction: 'left', time: 500 },
+            { who: 'hero', type: 'stand', direction: 'right', time: 500 },
             { who: 'hero', type: 'stand', direction: 'down' },
 
-            { type: 'textMessage', text: 'Aff, lá vamos nós novamente!!' }
+            { type: 'textMessage', text: 'Cara, de novo? Mas que porr...' },
+            { type: 'textMessage', text: 'Como sempre, não faço ideia de onde estou...' }
         ])
     }
 }

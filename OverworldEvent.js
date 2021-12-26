@@ -66,8 +66,18 @@ class OverworldEvent {
     }
 
     take(resolve) {
-        delete this.map.gameObjects[this.event.who]
+        delete this.map.gameObjects[this.event.who];
         resolve()
+    }
+
+    addStoryFlag(resolve) {
+        window.playerState.storyFlags[this.event.flag] = true;
+        resolve();
+    }
+
+    addCutsceneSpace(resolve) {
+        window.OverworldMaps[this.event.map].cutsceneSpaces[this.event.placeCoords] = this.event.eventToBeAdd;
+        resolve();
     }
 
 

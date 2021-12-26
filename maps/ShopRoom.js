@@ -6,30 +6,36 @@ export default {
     upperSrc: 'images/maps/ShopUpper.png',
     gameObjects: {
         hero: new Person({ x: utils.withGrid(5), y: utils.withGrid(11), isPlayerControlled: true, src: 'images/characters/hero.png' }),
-        computer: new Person({ 
-            x: utils.withGrid(5), y: utils.withGrid(6), isPlayerControlled: false, src: 'images/objects/computerTest.png',
+        computer: new Person({
+            x: utils.withGrid(5),
+            y: utils.withGrid(6),
+            isPlayerControlled: false,
+            src: 'images/objects/computerTest.png',
             behaviorLoop: [
                 { type: 'stand', direction: 'right' },
             ],
             talking: [{
                 events: [
-                    { who: 'computer',type: 'stand', direction: 'down', time:500},
-                    { type: 'textMessage', text: 'Tentando conectar...'},
+                    { who: 'computer', type: 'stand', direction: 'down' },
+                    { type: 'textMessage', text: 'Tentando conectar...' },
                     { type: 'textMessage', text: '...' },
                     { type: 'textMessage', text: 'Sem conexão com a Wired.' },
-                    { who: 'computer',type: 'stand', direction: 'up', time:500},
+                    { who: 'computer', type: 'stand', direction: 'up' },
                 ]
             }]
         }),
-        npc: new Person({ 
-            x: utils.withGrid(6), y: utils.withGrid(8), isPlayerControlled: false, src: 'images/characters/npc.png',
+        npc: new Person({
+            x: utils.withGrid(6),
+            y: utils.withGrid(8),
+            isPlayerControlled: false,
+            src: 'images/characters/npc.png',
             behaviorLoop: [
-                { type: 'stand', direction: 'left', time:1000},
+                { type: 'stand', direction: 'left', time: 1000 },
             ],
             talking: [{
                 events: [
-                    { who: 'npc', type: 'stand', direction: 'jump-left', time:400},
-                    { type: 'textMessage', text: 'É, sou um Npc... um bot?', faceHero: 'npc'  },
+                    { who: 'npc', type: 'stand', direction: 'jump-left', time: 400 },
+                    { type: 'textMessage', text: 'É, sou um Npc... um bot?', faceHero: 'npc' },
                 ]
             }]
         })

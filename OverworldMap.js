@@ -1,6 +1,6 @@
 import utils from './utils.js';
 import OverworldEvent from './OverworldEvent.js';
-import {DemoRoom, ShopRoom} from './maps/mapsFacade.js';
+import { DemoRoom, ShopRoom, BedRoom, Outside } from './maps/mapsFacade.js';
 
 class OverworldMap {
     constructor(config) {
@@ -44,7 +44,6 @@ class OverworldMap {
 
     mountObjects() {
         Object.keys(this.gameObjects).forEach(key => {
-
             let object = this.gameObjects[key];
             object.id = key;
 
@@ -75,7 +74,12 @@ class OverworldMap {
             return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
         });
         if (!this.isCutscenePlaying && match && match.talking.length) {
-            this.startCutscene(match.talking[0].events);
+            const relevantScenario = match.talking.find(scenario => {
+                return (scenario.required || []).every(sf => {
+                    return playerState.storyFlags[sf]
+                })
+            })
+            relevantScenario && this.startCutscene(relevantScenario.events);
         }
     }
 
@@ -107,6 +111,6 @@ class OverworldMap {
 
 }
 
-window.OverworldMaps = {ShopRoom,DemoRoom }
+window.OverworldMaps = { ShopRoom, DemoRoom, BedRoom, Outside }
 
 export default OverworldMap;
