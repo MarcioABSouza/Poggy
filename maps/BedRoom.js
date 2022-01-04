@@ -8,12 +8,6 @@ export default {
     upperSrc: 'images/maps/anyLower.png',
     gameObjects: {
         hero: new Iterable({ x: utils.withGrid(3), y: utils.withGrid(5), isPlayerControlled: true, src: 'images/characters/hero.png' }),
-        computer: new Computer({
-            x: utils.withGrid(2),
-            y: utils.withGrid(2),
-            isPlayerControlled: false,
-        }),
-
         smartphoneOnBedRoom: new Iterable({
             x: utils.withGrid(1),
             y: utils.withGrid(2),
