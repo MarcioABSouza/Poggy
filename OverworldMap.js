@@ -87,7 +87,7 @@ class OverworldMap {
         const hero = this.gameObjects['hero'];
         const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
 
-        utils.heroPositionHelper(hero.x, hero.y);
+        //utils.heroPositionHelper(hero.x, hero.y);
 
         if (!this.isCutscenePlaying && match) {
             this.startCutscene(match[0].events);

@@ -7,7 +7,7 @@ class Computer extends GameObject {
         super(config);
         this.sprite = new Sprite({
             gameObject: this,
-            src: '../images/objects/computer.png',
+            src: 'images/objects/computer.png',
             animations: {
                 'on-down': [
                     [0, 0]
