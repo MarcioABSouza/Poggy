@@ -1,7 +1,5 @@
 import Iterable from '../Iterable.js';
 import utils from '../utils.js';
-import Computer from '../iterables/Computer.js';
-
 
 export default {
     lowerSrc: 'images/maps/any.png',
