@@ -75,6 +75,7 @@ class Overworld {
     startMap(mapConfig) {
         this.map = new OverworldMap(mapConfig);
         this.map.overworld = this;
+        window.OverworldMap = this;
         this.map.mountObjects();
     }
 
@@ -83,6 +84,7 @@ class Overworld {
 
     init() {
 
+        
         window.playerState = new PlayerState();
         this.startMap(window.OverworldMaps.BedRoom);
 
@@ -93,16 +95,16 @@ class Overworld {
         this.directionInput = new DirectionInput();
         this.directionInput.init();
         this.startGameLoop();
-        this.sound.play();
+        //this.sound.play();
 
         this.map.startCutscene([
-            { who: 'hero', type: 'stand', direction: 'down', time: 500 },
-            { who: 'hero', type: 'stand', direction: 'left', time: 500 },
-            { who: 'hero', type: 'stand', direction: 'right', time: 500 },
-            { who: 'hero', type: 'stand', direction: 'down' },
+            // { who: 'hero', type: 'stand', direction: 'down', time: 500 },
+            // { who: 'hero', type: 'stand', direction: 'left', time: 500 },
+            // { who: 'hero', type: 'stand', direction: 'right', time: 500 },
+            // { who: 'hero', type: 'stand', direction: 'down' },
 
-            { type: 'textMessage', text: 'Cara, de novo? Mas que porr...' },
-            { type: 'textMessage', text: 'Como sempre, não faço ideia de onde estou...' }
+            // { type: 'textMessage', text: 'Cara, de novo? Mas que porr...' },
+            // { type: 'textMessage', text: 'Como sempre, não faço ideia de onde estou...' }
         ])
     }
 }

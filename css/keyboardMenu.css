@@ -1,0 +1,67 @@
+.KeyboardMenu {
+  border: 1px solid var(--border-color);
+  background: var(--menu-background);
+  position: absolute;
+}
+.KeyboardMenu button {
+ display: flex;
+ align-items: center;
+ width: 100%;
+ text-align:left;
+ -webkit-appearance: none;
+ border:0;
+ background: none;
+ height: 20px;
+ cursor:pointer;
+ font-family: 'Press Start 2P', cursive;
+ padding:0;
+ padding-left: 1em;
+ font-size: 7px;
+ color: #00e61c;
+}
+.KeyboardMenu button:focus {
+  border: 1px solid #00e61c;
+ background: #121212;
+ outline: 0;
+}
+
+.KeyboardMenu .option {
+  position: relative;
+ }
+ .KeyboardMenu .option .right {
+  position: absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  font-size: 7px;
+  display: flex;
+  align-items: center;
+  padding-right: 3px;
+ }
+
+ .DescriptionBox {
+  position:absolute;
+  bottom:223px;
+  left:0;
+  right:0;
+  color: var(--menu-font-color);
+  border-top: 1px solid var(--menu-font-color);
+  background: var(--menu-background);
+  padding: 2px;
+ }
+ .DescriptionBox p {
+  font-family: 'Press Start 2P', cursive;
+  padding: 4px;
+  height: 32px;
+  font-size: 7px;
+  margin:0;
+ }
+
+
+
+ /* Battle specific */
+.Battle .KeyboardMenu {
+  right:0;
+  bottom:0;
+  width: 140px;
+}

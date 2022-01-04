@@ -1,4 +1,4 @@
-import Person from '../Person.js';
+import Iterable from '../Iterable.js';
 import utils from '../utils.js';
 
 
@@ -6,8 +6,8 @@ export default {
     lowerSrc: 'images/maps/DemoLower.png',
     upperSrc: 'images/maps/DemoUpper.png',
     gameObjects: {
-        hero: new Person({ x: utils.withGrid(6), y: utils.withGrid(6), isPlayerControlled: true, src: 'images/characters/hero.png' }),
-        npc1: new Person({
+        hero: new Iterable({ x: utils.withGrid(6), y: utils.withGrid(6), isPlayerControlled: true, src: 'images/characters/hero.png' }),
+        npc1: new Iterable({
             x: utils.withGrid(3),
             y: utils.withGrid(6),
             src: 'images/characters/npc7.png',
@@ -27,8 +27,11 @@ export default {
                 ]
             }]
         }),
-        computerBroked: new Person({ 
-            x: utils.withGrid(8), y: utils.withGrid(6), isPlayerControlled: false, src: 'images/objects/computer.png',
+        computerBroked: new Iterable({
+            x: utils.withGrid(8),
+            y: utils.withGrid(6),
+            isPlayerControlled: false,
+            src: 'images/objects/computer.png',
             behaviorLoop: [
                 { type: 'stand', direction: 'right', time: 700 },
                 { type: 'stand', direction: 'up', time: 1200 },
@@ -38,7 +41,7 @@ export default {
             talking: [{
                 events: [
                     { type: 'textMessage', text: '...' },
-                    { type: 'take', who:'computerBroked'},
+                    { type: 'take', who: 'computerBroked' },
                     { type: 'textMessage', text: 'Você adquiriu um PC quebrado!!' },
                 ]
             }]

@@ -4,7 +4,7 @@
     right: 0;
     bottom: 224px;
     height: 36px;
-    font-size: 12px;
+    font-size: 7px;
     padding: 4px;
     background: var(--menu-background);
     border-top: 1px solid var(--menu-border-color);
@@ -19,7 +19,7 @@
 
 .TextMessage_button {
     margin: 0;
-    font-size: 11px;
+    font-size: 7px;
     padding: 0;
     -webkit-appearance: none;
     background: none;

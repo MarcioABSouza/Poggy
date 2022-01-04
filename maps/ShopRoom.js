@@ -1,12 +1,12 @@
-import Person from '../Person.js';
+import Iterable from '../Iterable.js';
 import utils from '../utils.js';
 
 export default {
     lowerSrc: 'images/maps/ShopLower.png',
     upperSrc: 'images/maps/ShopUpper.png',
     gameObjects: {
-        hero: new Person({ x: utils.withGrid(5), y: utils.withGrid(11), isPlayerControlled: true, src: 'images/characters/hero.png' }),
-        computer: new Person({
+        hero: new Iterable({ x: utils.withGrid(5), y: utils.withGrid(11), isPlayerControlled: true, src: 'images/characters/hero.png' }),
+        computer: new Iterable({
             x: utils.withGrid(5),
             y: utils.withGrid(6),
             isPlayerControlled: false,
@@ -24,7 +24,7 @@ export default {
                 ]
             }]
         }),
-        npc: new Person({
+        npc: new Iterable({
             x: utils.withGrid(6),
             y: utils.withGrid(8),
             isPlayerControlled: false,

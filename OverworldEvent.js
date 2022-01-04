@@ -1,6 +1,7 @@
 import SceneTransition from "./SceneTransition.js";
 import TextMessage from "./TextMessage.js";
 import utils from "./utils.js";
+import InteractingMenu from './InteractingMenu.js';
 class OverworldEvent {
     constructor({ map, event }) {
         this.map = map;
@@ -46,6 +47,16 @@ class OverworldEvent {
             obj.direction = utils.oppositeDirection(this.map.gameObjects['hero'].direction);
         }
 
+        let keywords = this.event.text.split(' ').filter(word => (word.includes('#')));
+        if (keywords.length){
+            keywords.forEach(word =>{
+                let keyword = word.substring(1);
+                if(!window.playerState.vocabulary.includes(keyword)){
+                    window.playerState.vocabulary.push(keyword);
+                }
+            });
+        };
+
         const message = new TextMessage({
             text: this.event.text,
             onComplete: () => resolve()
@@ -74,6 +85,19 @@ class OverworldEvent {
         window.playerState.storyFlags[this.event.flag] = true;
         resolve();
     }
+
+    interactingMenu(resolve) {
+        const menu = new InteractingMenu({
+            textOptions: this.event.textOptions,
+            reactionsToVocabulary: this.event.reactionsToVocabulary,
+            talkingEvents:this.event.talkingEvents,
+            onComplete: () => {
+                resolve();
+            }
+        })
+        menu.init(document.querySelector(".game-container"))
+    }
+
 
     addCutsceneSpace(resolve) {
         window.OverworldMaps[this.event.map].cutsceneSpaces[this.event.placeCoords] = this.event.eventToBeAdd;

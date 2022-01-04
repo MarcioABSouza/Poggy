@@ -22,6 +22,8 @@ button:focus {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-family: 'Press Start 2P', cursive;
+
 }
 
 .gameboy-body {

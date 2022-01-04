@@ -1,4 +1,4 @@
-import Person from '../Person.js';
+import Iterable from '../Iterable.js';
 import utils from '../utils.js';
 
 
@@ -6,7 +6,7 @@ export default {
     lowerSrc: 'images/maps/OutsideLower.png',
     upperSrc: 'images/maps/OutsideUpper.png',
     gameObjects: {
-        hero: new Person({ x: utils.withGrid(15), y: utils.withGrid(9), isPlayerControlled: true, src: 'images/characters/hero.png' })
+        hero: new Iterable({ x: utils.withGrid(15), y: utils.withGrid(9), isPlayerControlled: true, src: 'images/characters/hero.png' })
 
     },
     walls: {
