@@ -1,8 +1,10 @@
 class PlayerState {
     constructor() {
         this.storyFlags = {};
-        this.vocabulary = ['Algo'];
+        this.eCoin = 10;
+        this.vocabulary = [];
         this.bag = [];
+        this.steps = 0;
     }
 }
 

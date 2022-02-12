@@ -1,7 +1,6 @@
 import OverworldMap from './OverworldMap.js';
 import DirectionInput from './DirectionInput.js';
 import KeyPressListener from './KeyPressListener.js';
-import PlayerState from './PlayerState.js';
 
 class Overworld {
     constructor(config) {
@@ -85,9 +84,7 @@ class Overworld {
     init() {
 
         
-        window.playerState = new PlayerState();
         this.startMap(window.OverworldMaps.BedRoom);
-
         this.bindActionInput();
         this.bindHeroPositionCheck();
 
@@ -98,13 +95,15 @@ class Overworld {
         this.sound.play();
 
         this.map.startCutscene([
-            // { who: 'hero', type: 'stand', direction: 'down', time: 500 },
-            // { who: 'hero', type: 'stand', direction: 'left', time: 500 },
-            // { who: 'hero', type: 'stand', direction: 'right', time: 500 },
-            // { who: 'hero', type: 'stand', direction: 'down' },
+            { who: 'hero', type: 'stand', direction: 'down', time: 500 },
+            { who: 'hero', type: 'stand', direction: 'left', time: 500 },
+            { who: 'hero', type: 'stand', direction: 'right', time: 500 },
+            { who: 'hero', type: 'stand', direction: 'down' },
 
-            // { type: 'textMessage', text: 'Cara, de novo? Mas que porr...' },
-            // { type: 'textMessage', text: 'Como sempre, não faço ideia de onde estou...' }
+            { type: 'textMessage', text: '...' },
+            { type: 'textMessage', text: '...!' },
+            { type: 'textMessage', text: 'Cara, que noite cansativa.' },
+            { type: 'textMessage', text: 'Melhor eu tomar um café, abrir os olhos...' }
         ])
     }
 }

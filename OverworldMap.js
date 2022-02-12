@@ -86,13 +86,17 @@ class OverworldMap {
     checkForFootstepCutscene() {
         const hero = this.gameObjects['hero'];
         const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
-
+        window.playerState.steps = window.playerState.steps + 1;
         //utils.heroPositionHelper(hero.x, hero.y);
 
         if (!this.isCutscenePlaying && match) {
-            this.startCutscene(match[0].events);
+            const relevantScenario = match.find(scenario => {
+                return (scenario.required || []).every(sf => {
+                    return playerState.storyFlags[sf]
+                })
+            })
+            relevantScenario && this.startCutscene(relevantScenario.events);
         }
-
     }
 
     addWall(x, y) {
