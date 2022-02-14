@@ -1,6 +1,6 @@
-import PlayerState from './PlayerState.js';
-import GameState from './GameState.js';
-import EventState from './EventState.js';
+import PlayerState from './state/PlayerState.js';
+import GameState from './state/GameState.js';
+import EventState from './state/EventState.js';
 
 
 window.playerState = new PlayerState();

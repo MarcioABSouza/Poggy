@@ -1,6 +1,6 @@
 import OverworldMap from './OverworldMap.js';
-import DirectionInput from './DirectionInput.js';
-import KeyPressListener from './KeyPressListener.js';
+import DirectionInput from './controllers/DirectionInput.js';
+import KeyPressListener from './controllers/KeyPressListener.js';
 
 class Overworld {
     constructor(config) {
@@ -92,7 +92,7 @@ class Overworld {
         this.directionInput = new DirectionInput();
         this.directionInput.init();
         this.startGameLoop();
-        this.sound.play();
+        //this.sound.play();
 
         this.map.startCutscene([
             { who: 'hero', type: 'stand', direction: 'down', time: 500 },

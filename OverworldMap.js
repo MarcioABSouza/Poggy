@@ -73,8 +73,9 @@ class OverworldMap {
         const match = Object.values(this.gameObjects).find(object => {
             return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
         });
-        if (!this.isCutscenePlaying && match && match.talking.length) {
-            const relevantScenario = match.talking.find(scenario => {
+
+        if (!this.isCutscenePlaying && match) {
+            const relevantScenario = window.eventState[match.id].find(scenario => {
                 return (scenario.required || []).every(sf => {
                     return playerState.storyFlags[sf]
                 })

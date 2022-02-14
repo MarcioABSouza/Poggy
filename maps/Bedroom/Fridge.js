@@ -5,10 +5,5 @@ export default new Iterable({
     x: utils.withGrid(5),
     y: utils.withGrid(0),
     isPlayerControlled: false,
-    src: 'images/objects/standard.png',
-    talking: [{
-        events: [
-            { type: 'textMessage', text: 'Geladeira vazia.' }
-        ]
-    }]
+    src: 'images/objects/standard.png'
 })

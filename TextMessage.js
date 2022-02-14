@@ -1,4 +1,4 @@
-import KeyPressListener from "./KeyPressListener.js";
+import KeyPressListener from "./controllers/KeyPressListener.js";
 
 class TextMessage {
     constructor({ text, onComplete }) {

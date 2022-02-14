@@ -1,4 +1,4 @@
-import KeyboardMenu from "./KeyboardMenu.js";
+import KeyboardMenu from "./controllers/KeyboardMenu.js";
 
 class InteractingMenu {
   constructor({ textOptions, reactionsToVocabulary, onComplete }) {
@@ -17,7 +17,7 @@ class InteractingMenu {
           description: text.description,
           handler: () => {
             let menuOptions =
-              text.options && text.options.length > 0
+              text.options
                 ? text.options
                 : window.playerState.vocabulary;
 

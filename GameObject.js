@@ -16,6 +16,7 @@ class GameObject {
         this.behaviorLoop = config.behaviorLoop || [];
         this.behaviorLoopIndex = 0;
 
+        this.events = config.events || [];
         this.talking = config.talking || [];
         this.reactionsToVocabulary = config.reactionsToVocabulary || [];
     }
